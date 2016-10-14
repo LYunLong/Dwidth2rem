@@ -28,9 +28,6 @@
     $(document).ready(function(){
         var Dw2r = new Dwidth2rem;
         Dw2r.init(10);//初始化，1rem为1/10倍clientWidth
-        window.onresize = function(){ //当屏幕尺寸变化或者手机横屏切换，重新计算rem
-            Dw2r.calc();
-        }
     });
 </script>
 </body>

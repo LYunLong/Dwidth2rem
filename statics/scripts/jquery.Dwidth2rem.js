@@ -27,18 +27,22 @@
     }
     //device width to rem core
     var Dwidth2rem = function(){
-        this.sizeTimes = 37.5;
-        this.init=function(sizeTimes){
-                if (sizeTimes)this.sizeTimes=sizeTimes;
-                this.calc();
-                return this;
+        var _this = this;
+        _this.sizeTimes = 37.5;
+        _this.init=function(sizeTimes){
+                if (sizeTimes)_this.sizeTimes=sizeTimes;
+                _this.calc();
+                return _this;
             };
-         this.calc=function(){
+         _this.calc=function(){
                 if(checkMobile()){
-                    $("html").css("font-size",((document.documentElement.clientWidth/this.sizeTimes)+"px"));
+                    $("html").css("font-size",((document.documentElement.clientWidth/_this.sizeTimes)+"px"));
                 }else{
-                    $("html").css("font-size",(((document.documentElement.clientWidth-20)/this.sizeTimes)+"px"));
+                    $("html").css("font-size",(((document.documentElement.clientWidth-20)/_this.sizeTimes)+"px"));
                 }
             };
+        window.onresize = function(){ //当屏幕尺寸变化或者手机横屏切换，重新计算rem
+            _this.calc();
+        }
     };
 
