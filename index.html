@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <title>Dwidth2rem Demo</title>
+    <script src="statics/scripts/jquery-1.10.1.min.js"></script>
+    <script src="statics/scripts/jquery.Dwidth2rem.js"></script>
+</head>
+<body>
+<style>
+    .test1{
+        font-size: 1rem;
+    }
+    .test2{
+        height: 5rem;
+        width: 5rem;
+        background-color: antiquewhite;
+    }
+</style>
+
+<div class="test1">
+    asdasdada
+</div>
+<div class="test2"></div>
+
+<script>
+    $(document).ready(function(){
+        var Dw2r = new Dwidth2rem;
+        Dw2r.init(10);//初始化，1rem为1/10倍clientWidth
+        window.onresize = function(){ //当屏幕尺寸变化或者手机横屏切换，重新计算rem
+            Dw2r.calc();
+        }
+    });
+</script>
+</body>
+</html>
